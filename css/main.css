@@ -1,0 +1,233 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --header-footer-bg: #003366;
+  --card-bg: white;
+  --accent-color: #00bfff;
+  --link-hover: #0055aa;
+  --card-title: #003366;
+  --font-size: 16px;
+  --btn-bg: var(--header-footer-bg);
+  --btn-color: white;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ---------- MENU ---------- */
+header {
+  background-color: var(--header-footer-bg);
+  color: white;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  flex-wrap: wrap;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu ul li a:hover,
+.menu ul li a.active {
+  color: var(--accent-color);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* ---------- MAIN ---------- */
+main {
+  flex: 1;
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Ajustes nos cards para mais altura e espaço */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 320px;
+  min-height: 380px;
+  text-align: center;
+  padding: 30px 25px 25px;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+
+.card h2 {
+  margin-bottom: 15px;
+  color: var(--card-title);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card p {
+  color: var(--text-color);
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 22px;
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--link-hover);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: var(--header-footer-bg);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- DARK MODE ---------- */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --header-footer-bg: #1f1f1f;
+  --card-bg: #1e1e1e;
+  --accent-color: #00bfff;
+  --link-hover: #3399ff;
+  --card-title: #00bfff;
+  --btn-bg: #FFD700;
+  --btn-color: #121212;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu {
+    padding: 15px 20px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .controls {
+    align-self: center;
+    margin-top: 10px;
+  }
+}
+
+/* Acessibilidade: fonte maior */
+body.large-font {
+  font-size: 18px;
+}
+
+body.large-font .card h2 {
+  font-size: 1.6rem; /* maior que o padrão */
+}
+
+body.large-font .card p {
+  font-size: 1.1rem; /* aumentar texto do parágrafo */
+  line-height: 1.6;
+}
